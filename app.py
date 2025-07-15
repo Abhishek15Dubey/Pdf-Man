@@ -53,6 +53,8 @@ def convert_pdf_to_doc():
     converter.close()
 
     return send_file(docx_path, as_attachment=True)
+import os
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
